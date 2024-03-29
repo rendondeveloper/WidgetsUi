@@ -1,11 +1,15 @@
-
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatefulWidget {
-  const CardWidget({super.key, required this.onTap, required this.child});
-
-  final Function onTap;
+  final GestureTapCallback onTap;
   final Widget child;
+  double borderRadius;
+
+  CardWidget(
+      {super.key,
+      required this.onTap,
+      required this.child,
+      this.borderRadius = 12.0});
 
   @override
   State<CardWidget> createState() => _CardWidgetState();
@@ -16,10 +20,9 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-        onTap: widget.onTap(),
-        child: widget.child
-      ),
+          borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
+          onTap: widget.onTap,
+          child: widget.child),
     );
   }
 }
