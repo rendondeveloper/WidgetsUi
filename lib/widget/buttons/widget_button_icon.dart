@@ -14,7 +14,7 @@ class WidgetButtonIcon extends StatefulWidget {
       this.width,
       this.backgroundColor,
       this.icon,
-      this.enableButton = true,
+      this.enableButton = false,
       this.onPressed})
       : super(key: key);
 
