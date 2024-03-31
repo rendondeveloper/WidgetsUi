@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class WidgetButtonIcon extends StatefulWidget {
   final double? width;
   final Color? backgroundColor;
-  final Icon? icon;
+  final Widget? icon;
   final VoidCallback? onPressed;
-  final Text? text;
+  final Widget? text;
   final bool? enableButton;
 
   const WidgetButtonIcon(
