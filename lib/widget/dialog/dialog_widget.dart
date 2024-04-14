@@ -17,7 +17,7 @@ void dialogWidget(
     final bool useAndroidDialog = false,
     final bool useZeroPaddingAndroid = false,
     AlertDialog Function(BuildContext context)? builder}) async {
-  late List<Widget>? actionsList;
+  List<Widget>? actionsList;
 
   if (callbackCancel != null) {
     actionsList = [];
@@ -58,36 +58,14 @@ void dialogWidget(
             )
           : CupertinoAlertDialog(
               title: title,
-              content: child,
-              actions: <Widget>[
-                CupertinoDialogAction(
-                    child: Text(textCancel ?? "CANCELAR",
-                        style: textStyleButtonFlag ??
-                            const TextStyle(
-                                fontSize: 14.0,
-                                fontStyle: FontStyle.normal,
-                                color: Colors.black)),
-                    onPressed: () {
-                      final action =
-                          callbackCancel ?? Navigator.of(context).pop();
-                      action;
-                    }),
-                CupertinoDialogAction(
-                  child: Text(textOk ?? "ACEPTAR",
-                      style: textStyleButtonFlag ??
-                          const TextStyle(
-                              fontSize: 14.0,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.black)),
-                  onPressed: () {
-                    if (callbackOk != null) {
-                      callbackOk();
-                    } else {
-                      Navigator.of(context).pop();
-                    }
-                  },
-                ),
-              ],
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  if (message != null) message,
+                  if (child != null) child,
+                ],
+              ),
+              actions: actionsList ?? [],
             );
     },
   );
