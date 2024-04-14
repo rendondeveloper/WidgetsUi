@@ -17,6 +17,25 @@ void dialogWidget(
     final bool useAndroidDialog = false,
     final bool useZeroPaddingAndroid = false,
     AlertDialog Function(BuildContext context)? builder}) async {
+  late List<Widget>? actionsList;
+
+  if (callbackCancel != null) {
+    actionsList = [];
+    actionsList.add(InkWell(
+      onTap: callbackCancel,
+      child: Text(textCancel ?? "CANCELAR",
+          style: textStyleButtonFlag ?? Theme.of(context).textTheme.labelLarge),
+    ));
+  }
+  if (callbackOk != null) {
+    actionsList ??= [];
+    actionsList.add(InkWell(
+      onTap: callbackOk,
+      child: Text(textOk ?? "ACEPTAR",
+          style: textStyleButtonFlag ?? Theme.of(context).textTheme.labelLarge),
+    ));
+  }
+
   await showDialog(
     context: context,
     useSafeArea: false,
@@ -35,35 +54,7 @@ void dialogWidget(
                   if (child != null) child,
                 ],
               ),
-              actions: <Widget>[
-                Visibility(
-                  visible: callbackCancel != null,
-                  child: InkWell(
-                    onTap: callbackCancel != null
-                        ? () {
-                            callbackCancel();
-                          }
-                        : () {
-                            Navigator.of(context).pop();
-                          },
-                    child: Text(textCancel ?? "CANCELAR",
-                        style: textStyleButtonFlag ??
-                            Theme.of(context).textTheme.labelLarge),
-                  ),
-                ),
-                InkWell(
-                  onTap: callbackOk != null
-                      ? () {
-                          callbackOk();
-                        }
-                      : () {
-                          Navigator.of(context).pop();
-                        },
-                  child: Text(textOk ?? "ACEPTAR",
-                      style: textStyleButtonFlag ??
-                          Theme.of(context).textTheme.labelLarge),
-                ),
-              ],
+              actions: actionsList,
             )
           : CupertinoAlertDialog(
               title: title,
