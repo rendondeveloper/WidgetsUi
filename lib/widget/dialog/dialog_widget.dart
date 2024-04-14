@@ -7,80 +7,96 @@ void dialogWidget(
     {Key? key,
     required final BuildContext context,
     required final Text title,
+    required final Text message,
     final String? textOk,
     final String? textCancel,
     final TextStyle? textStyleButtonFlag,
     final VoidCallback? callbackOk,
     final VoidCallback? callbackCancel,
-    final Widget? content,
+    final Widget? child,
     final bool useAndroidDialog = false,
-    final bool barrierDismissible = true,
-    final bool dismissAfterPressOk = false,
     final bool useZeroPaddingAndroid = false,
     AlertDialog Function(BuildContext context)? builder}) async {
-  final actions = <Widget>[];
-
-  if (useAndroidDialog || Platform.isAndroid) {
-    if (textOk != null) {
-      if (textCancel != null) {
-        actions.add(TextButton(
-          onPressed: () {
-            callbackCancel?.call();
-            Navigator.of(context).pop();
-          },
-          child:
-              Text(textCancel ?? "", style: textStyleButtonFlag ?? const TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal, color: Colors.black)),
-        ));
-      }
-
-      actions.add(TextButton(
-        onPressed: () {
-          callbackOk?.call();
-          if (dismissAfterPressOk) {
-            Navigator.of(context).pop();
-          }
-        },
-        child: Text(textOk ?? "", style: textStyleButtonFlag ?? const TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal, color: Colors.black)),
-      ));
-    }
-  } else {
-    if (textCancel != null) {
-      actions.add(CupertinoDialogAction(
-        child:
-            Text(textCancel ?? "", style: textStyleButtonFlag ?? const TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal, color: Colors.black)),
-        onPressed: () {
-          callbackCancel?.call();
-          Navigator.of(context).pop();
-        },
-      ));
-    }
-
-    if (textOk != null) {
-      actions.add(CupertinoDialogAction(
-          child: Text(textOk ?? "", style: textStyleButtonFlag ?? const TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal, color: Colors.black)),
-          onPressed: () {
-            callbackOk?.call();
-            if (dismissAfterPressOk) {
-              Navigator.of(context).pop();
-            }
-          }));
-    }
-  }
-
   await showDialog(
     context: context,
-    barrierDismissible: barrierDismissible,
+    useSafeArea: false,
     builder: (BuildContext context) {
       return useAndroidDialog || Platform.isAndroid
           ? AlertDialog(
+              insetPadding: useZeroPaddingAndroid
+                  ? EdgeInsets.zero
+                  : const EdgeInsets.symmetric(
+                      horizontal: 40.0, vertical: 24.0),
               title: title,
-              content: content,
-              actions: actions,
+              content: Stack(
+                children: <Widget>[
+                  child ?? Container(),
+                  message,
+                ],
+              ),
+              actions: <Widget>[
+                Visibility(
+                  visible: callbackCancel != null,
+                  child: InkWell(
+                    onTap: callbackCancel != null
+                        ? () {
+                            callbackCancel();
+                          }
+                        : () {
+                            Navigator.of(context).pop();
+                          },
+                    child: Text(textCancel ?? "CANCELAR",
+                        style: textStyleButtonFlag ??
+                            context.getTheme().textTheme.labelLarge),
+                  ),
+                ),
+                InkWell(
+                  onTap: callbackOk != null
+                      ? () {
+                          callbackOk();
+                        }
+                      : () {
+                          Navigator.of(context).pop();
+                        },
+                  child: Text(textOk ?? "ACEPTAR",
+                      style: textStyleButtonFlag ??
+                          context.getTheme().textTheme.labelLarge),
+                ),
+              ],
             )
           : CupertinoAlertDialog(
               title: title,
-              content: content,
-              actions: actions,
+              content: child,
+              actions: <Widget>[
+                CupertinoDialogAction(
+                    child: Text(
+                        textCancel ?? StringsApp.bottomSheetButtonCancel,
+                        style: textStyleButtonFlag ??
+                            const TextStyle(
+                                fontSize: 14.0,
+                                fontStyle: FontStyle.normal,
+                                color: Colors.black)),
+                    onPressed: () {
+                      final action =
+                          callbackCancel ?? Navigator.of(context).pop();
+                      action;
+                    }),
+                CupertinoDialogAction(
+                  child: Text(textOk ?? StringsApp.bottomSheetButtonOk,
+                      style: textStyleButtonFlag ??
+                          const TextStyle(
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.black)),
+                  onPressed: () {
+                    if (callbackOk != null) {
+                      callbackOk();
+                    } else {
+                      Navigator.of(context).pop();
+                    }
+                  },
+                ),
+              ],
             );
     },
   );
