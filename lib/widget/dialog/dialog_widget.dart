@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 void dialogWidget(
     {Key? key,
     required final BuildContext context,
-    required final Text title,
-    required final Text message,
+    final Text? title,
+    final Text? message,
     final String? textOk,
     final String? textCancel,
     final TextStyle? textStyleButtonFlag,
@@ -28,10 +28,11 @@ void dialogWidget(
                   : const EdgeInsets.symmetric(
                       horizontal: 40.0, vertical: 24.0),
               title: title,
-              content: Stack(
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  child ?? Container(),
-                  message,
+                  if (message != null) message,
+                  if (child != null) child,
                 ],
               ),
               actions: <Widget>[
@@ -47,7 +48,7 @@ void dialogWidget(
                           },
                     child: Text(textCancel ?? "CANCELAR",
                         style: textStyleButtonFlag ??
-                            context.getTheme().textTheme.labelLarge),
+                            Theme.of(context).textTheme.labelLarge),
                   ),
                 ),
                 InkWell(
@@ -60,7 +61,7 @@ void dialogWidget(
                         },
                   child: Text(textOk ?? "ACEPTAR",
                       style: textStyleButtonFlag ??
-                          context.getTheme().textTheme.labelLarge),
+                          Theme.of(context).textTheme.labelLarge),
                 ),
               ],
             )
@@ -69,8 +70,7 @@ void dialogWidget(
               content: child,
               actions: <Widget>[
                 CupertinoDialogAction(
-                    child: Text(
-                        textCancel ?? StringsApp.bottomSheetButtonCancel,
+                    child: Text(textCancel ?? "CANCELAR",
                         style: textStyleButtonFlag ??
                             const TextStyle(
                                 fontSize: 14.0,
@@ -82,7 +82,7 @@ void dialogWidget(
                       action;
                     }),
                 CupertinoDialogAction(
-                  child: Text(textOk ?? StringsApp.bottomSheetButtonOk,
+                  child: Text(textOk ?? "ACEPTAR",
                       style: textStyleButtonFlag ??
                           const TextStyle(
                               fontSize: 14.0,

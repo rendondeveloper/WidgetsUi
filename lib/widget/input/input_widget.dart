@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:identaplusschool/widgets/input/upper_case_text_formatter.dart';
+import 'package:widgets_ui/widget/input/upper_case_text_formatter.dart';
 
 class InputStateWidget extends StatefulWidget {
   final String labelText;
