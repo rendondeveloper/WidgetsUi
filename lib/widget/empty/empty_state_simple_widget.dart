@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class EmptyStateSimpleWidget extends StatelessWidget {
-  final Text text;
-  final Icon icon;
+  final Widget text;
+  final Widget icon;
 
   const EmptyStateSimpleWidget(
       {required this.text, required this.icon, Key? key})
