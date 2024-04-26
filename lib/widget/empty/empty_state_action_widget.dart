@@ -11,25 +11,24 @@ class EmptyStateActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context);
-    return Container(
-      width: media.orientation == Orientation.portrait
-          ? media.size.width * .80
-          : media.size.width * .60,
-      alignment: Alignment.center,
+    return SizedBox.expand(
       child: SingleChildScrollView(
-        child: Wrap(
-          alignment: WrapAlignment.center,
-          children: <Widget>[
-            icon,
-            const SizedBox(height: 32.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
-              child: text,
-            ),
-            const SizedBox(height: 40.0),
-            action
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(22.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              icon,
+              const SizedBox(height: 32.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 34.0),
+                child: text,
+              ),
+              const SizedBox(height: 40.0),
+              action
+            ],
+          ),
         ),
       ),
     );
