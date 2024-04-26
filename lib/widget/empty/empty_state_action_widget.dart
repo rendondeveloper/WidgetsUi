@@ -11,7 +11,11 @@ class EmptyStateActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    final media = MediaQuery.of(context);
+    return Container(
+      width: media.size.width,
+      height: media.size.height,
+      alignment: Alignment.center,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(22.0),
