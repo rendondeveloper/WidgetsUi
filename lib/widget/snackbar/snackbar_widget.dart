@@ -26,7 +26,7 @@ void showSnackbarWidget({
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              if (icon != null) icon,
+              if (icon != null) Center(child: icon),
               if (icon != null)
                 const SizedBox(
                   width: 8,
