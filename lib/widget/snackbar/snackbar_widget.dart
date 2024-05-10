@@ -20,7 +20,7 @@ void showSnackbarWidget({
             side: BorderSide(color: color, width: 1.0), borderRadius: border),
         behavior: behavior,
         content: Padding(
-          padding: const EdgeInsets.only(right: 24, left: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,10 @@ void showSnackbarWidget({
                 const SizedBox(
                   width: 8,
                 ),
-              content
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .60,
+                child: content,
+              )
             ],
           ),
         )));
