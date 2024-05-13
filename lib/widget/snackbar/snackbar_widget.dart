@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void showSnackbarWidget({
   required BuildContext context,
   required Widget content,
-  required Color color,
+  Color? color,
   SnackBarBehavior behavior = SnackBarBehavior.fixed,
   Duration duration = const Duration(milliseconds: 3000),
   direction = DismissDirection.up,
@@ -17,7 +17,12 @@ void showSnackbarWidget({
         dismissDirection: direction,
         duration: duration,
         shape: RoundedRectangleBorder(
-            side: BorderSide(color: color, width: 1.0), borderRadius: border),
+            side: BorderSide(
+                color: color ??
+                    Theme.of(context).snackBarTheme.backgroundColor ??
+                    Colors.black,
+                width: 1.0),
+            borderRadius: border),
         behavior: behavior,
         content: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
