@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoaderWidget extends StatelessWidget {
-  const LoaderWidget({Key? key}) : super(key: key);
+  final Widget? meesage;
+  const LoaderWidget({required this.meesage, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,10 @@ class LoaderWidget extends StatelessWidget {
                         backgroundColor: Colors.white),
                   )
                 : const CupertinoActivityIndicator(),
-            Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Text(text ?? "",
-                    style: Theme.of(context).textTheme.titleSmall)),
+            if (meesage != null)
+              Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: meesage),
           ],
         ),
       ),
