@@ -9,6 +9,7 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
   final int maxLinesData;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
+  final double? separation;
 
   const LabelTitleSubtitleWidget(
       {required this.title,
@@ -17,6 +18,7 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
       this.mainAxisAlignment = MainAxisAlignment.start,
       this.maxLinesLabel = 3,
       this.maxLinesData = 3,
+      this.separation = 3,
       this.styleTitle,
       this.styleLabel,
       Key? key})
@@ -36,7 +38,7 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
                     .textTheme
                     .labelSmall
                     ?.copyWith(fontWeight: FontWeight.normal)),
-        const SizedBox(height: 8.0),
+        SizedBox(height: separation),
         Text(subtTitle,
             softWrap: true,
             maxLines: maxLinesData,
