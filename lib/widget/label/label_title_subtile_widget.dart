@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class LabelTitleSubtitleWidget extends StatelessWidget {
   final String title;
   final String subtTitle;
-  final TextStyle? styleLabel;
+  final TextStyle? styleTitle;
   final int maxLinesLabel;
-  final TextStyle? styleData;
+  final TextStyle? styleLabel;
   final int maxLinesData;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
@@ -17,8 +17,8 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
       this.mainAxisAlignment = MainAxisAlignment.start,
       this.maxLinesLabel = 3,
       this.maxLinesData = 3,
+      this.styleTitle,
       this.styleLabel,
-      this.styleData,
       Key? key})
       : super(key: key);
 
@@ -31,7 +31,7 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
         Text(title,
             softWrap: true,
             maxLines: maxLinesLabel,
-            style: styleLabel ??
+            style: styleTitle ??
                 Theme.of(context)
                     .textTheme
                     .labelSmall
@@ -41,7 +41,7 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
             softWrap: true,
             maxLines: maxLinesData,
             overflow: TextOverflow.ellipsis,
-            style: styleData ?? Theme.of(context).textTheme.labelSmall)
+            style: styleLabel ?? Theme.of(context).textTheme.labelSmall)
       ],
     );
   }
