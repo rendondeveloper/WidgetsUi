@@ -8,11 +8,13 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
   final TextStyle? styleData;
   final int maxLinesData;
   final CrossAxisAlignment crossAxisAlignment;
+  final MainAxisAlignment mainAxisAlignment;
 
   const LabelTitleSubtitleWidget(
       {required this.title,
       required this.subtTitle,
       this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisAlignment = MainAxisAlignment.start,
       this.maxLinesLabel = 3,
       this.maxLinesData = 3,
       this.styleLabel,
@@ -23,8 +25,8 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
       children: <Widget>[
         Text(title,
             softWrap: true,
