@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:widgets_ui/widget/input/upper_case_text_formatter.dart';
 
 class InputStateWidget extends StatefulWidget {
@@ -12,6 +13,7 @@ class InputStateWidget extends StatefulWidget {
   TextEditingController? controller;
   TextInputType? keyboardType;
   TextInputAction? kextInputAction;
+  TextStyle? textStyle;
   int? maxLength;
 
   InputStateWidget(
@@ -28,6 +30,7 @@ class InputStateWidget extends StatefulWidget {
       this.controller,
       this.keyboardType,
       this.kextInputAction,
+      this.textStyle,
       this.maxLength})
       : super(key: key);
 
@@ -58,6 +61,7 @@ class _InputStateWidget extends State<InputStateWidget> {
       focusNode: widget.focusNode,
       obscureText: showTextPassword,
       controller: widget.controller,
+      style: widget.textStyle,
       inputFormatters: _textInputFormatter,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       textInputAction: widget.kextInputAction ?? TextInputAction.none,
