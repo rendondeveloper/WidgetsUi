@@ -29,7 +29,7 @@ void dialogWidget(
           onTap: () {
             callbackCancel();
             if (allowBackCancel) {
-              Navigator.of(contextLocal).pop();
+              Navigator.of(context).pop();
             }
           },
           child: Text(textCancel ?? "CANCELAR",
@@ -37,13 +37,26 @@ void dialogWidget(
                   Theme.of(context).textTheme.labelLarge),
         ));
       }
+
+      if (allowBackCancel) {
+        actionsList = [];
+        actionsList.add(InkWell(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(textCancel ?? "CANCELAR",
+              style: textStyleButtonFlag ??
+                  Theme.of(context).textTheme.labelLarge),
+        ));
+      }
+
       if (callbackOk != null) {
         actionsList ??= [];
         actionsList.add(InkWell(
           onTap: () {
             callbackOk();
             if (allowBackOk) {
-              Navigator.of(contextLocal).pop();
+              Navigator.of(context).pop();
             }
           },
           child: Text(textOk ?? "ACEPTAR",
