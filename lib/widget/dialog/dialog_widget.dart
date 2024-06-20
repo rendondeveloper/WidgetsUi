@@ -38,7 +38,7 @@ void dialogWidget(
         ));
       }
 
-      if (allowBackCancel) {
+      if (allowBackCancel && callbackCancel == null) {
         actionsList = [];
         actionsList.add(InkWell(
           onTap: () {
