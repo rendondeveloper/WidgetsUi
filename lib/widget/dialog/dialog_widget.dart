@@ -16,31 +16,42 @@ void dialogWidget(
     final Widget? child,
     final bool useAndroidDialog = false,
     final bool useZeroPaddingAndroid = false,
-    AlertDialog Function(BuildContext context)? builder}) async {
-  List<Widget>? actionsList;
-
-  if (callbackCancel != null) {
-    actionsList = [];
-    actionsList.add(InkWell(
-      onTap: callbackCancel,
-      child: Text(textCancel ?? "CANCELAR",
-          style: textStyleButtonFlag ?? Theme.of(context).textTheme.labelLarge),
-    ));
-  }
-  if (callbackOk != null) {
-    actionsList ??= [];
-    actionsList.add(InkWell(
-      onTap: callbackOk,
-      child: Text(textOk ?? "ACEPTAR",
-          style: textStyleButtonFlag ?? Theme.of(context).textTheme.labelLarge),
-    ));
-  }
-
-
+    final bool allowBackCancel = true,
+    final bool allowBackOk = true}) async {
   await showDialog(
     context: context,
     useSafeArea: false,
-    builder: (BuildContext context) {
+    builder: (BuildContext contextLocal) {
+      List<Widget>? actionsList;
+      if (callbackCancel != null) {
+        actionsList = [];
+        actionsList.add(InkWell(
+          onTap: () {
+            callbackCancel();
+            if (allowBackCancel) {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(textCancel ?? "CANCELAR",
+              style: textStyleButtonFlag ??
+                  Theme.of(context).textTheme.labelLarge),
+        ));
+      }
+      if (callbackOk != null) {
+        actionsList ??= [];
+        actionsList.add(InkWell(
+          onTap: () {
+            callbackOk();
+            if (allowBackOk) {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(textOk ?? "ACEPTAR",
+              style: textStyleButtonFlag ??
+                  Theme.of(context).textTheme.labelLarge),
+        ));
+      }
+
       return useAndroidDialog || Platform.isAndroid
           ? AlertDialog(
               insetPadding: useZeroPaddingAndroid
