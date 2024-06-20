@@ -29,7 +29,7 @@ void dialogWidget(
           onTap: () {
             callbackCancel();
             if (allowBackCancel) {
-              Navigator.of(context).pop();
+              Navigator.of(contextLocal).pop();
             }
           },
           child: Text(textCancel ?? "CANCELAR",
@@ -42,7 +42,7 @@ void dialogWidget(
         actionsList = [];
         actionsList.add(InkWell(
           onTap: () {
-            Navigator.of(context).pop();
+            Navigator.of(contextLocal).pop();
           },
           child: Text(textCancel ?? "CANCELAR",
               style: textStyleButtonFlag ??
@@ -56,7 +56,7 @@ void dialogWidget(
           onTap: () {
             callbackOk();
             if (allowBackOk) {
-              Navigator.of(context).pop();
+              Navigator.of(contextLocal).pop();
             }
           },
           child: Text(textOk ?? "ACEPTAR",
