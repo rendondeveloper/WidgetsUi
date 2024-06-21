@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CardWidget extends StatefulWidget {
   final GestureTapCallback onTap;
+  GestureTapCallback? onLongPress;
   final Widget child;
   double borderRadius;
 
@@ -9,6 +11,7 @@ class CardWidget extends StatefulWidget {
       {super.key,
       required this.onTap,
       required this.child,
+      this.onLongPress,
       this.borderRadius = 12.0});
 
   @override
@@ -22,6 +25,7 @@ class _CardWidgetState extends State<CardWidget> {
       child: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius)),
           onTap: widget.onTap,
+          onLongPress: widget.onLongPress,
           child: widget.child),
     );
   }
