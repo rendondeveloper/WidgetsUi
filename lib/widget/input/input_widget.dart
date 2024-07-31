@@ -15,6 +15,10 @@ class InputStateWidget extends StatefulWidget {
   TextInputAction? kextInputAction;
   TextStyle? textStyle;
   int? maxLength;
+  Funtion(String value)  onChanged;
+
+  @override
+  State<InputStateWidget> createState() => _InputStateWidget();
 
   InputStateWidget(
       {Key? key,
@@ -31,11 +35,10 @@ class InputStateWidget extends StatefulWidget {
       this.keyboardType,
       this.kextInputAction,
       this.textStyle,
-      this.maxLength})
+      this.maxLength,
+      this.onChanged
+      })
       : super(key: key);
-
-  @override
-  State<InputStateWidget> createState() => _InputStateWidget();
 }
 
 class _InputStateWidget extends State<InputStateWidget> {
@@ -71,6 +74,7 @@ class _InputStateWidget extends State<InputStateWidget> {
           FocusScope.of(context).requestFocus(widget.focusNextNode);
         }
       },
+      onChanged: widget.onChanged,
       decoration: decoration(
           context,
           widget.controller,
