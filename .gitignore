@@ -47,3 +47,13 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+#Setting json
+.vscode/
+
+# FVM Version Cache
+.fvm/
+.fvmrc
+
+#libraries
+pubspec.lock
