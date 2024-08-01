@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:widgets_ui/widget/input/upper_case_text_formatter.dart';
 
 class InputStateWidget extends StatefulWidget {
@@ -15,30 +14,29 @@ class InputStateWidget extends StatefulWidget {
   TextInputAction? kextInputAction;
   TextStyle? textStyle;
   int? maxLength;
-  Funtion(String value)  onChanged;
+  Function(String value)? onChanged;
 
   @override
   State<InputStateWidget> createState() => _InputStateWidget();
 
-  InputStateWidget(
-      {Key? key,
-      required this.labelText,
-      required this.labelStyle,
-      this.counterAllow = false,
-      this.obscureText = false,
-      this.visibleIconClear = false,
-      this.useMayus = false,
-      this.iconData,
-      this.focusNode,
-      this.focusNextNode,
-      this.controller,
-      this.keyboardType,
-      this.kextInputAction,
-      this.textStyle,
-      this.maxLength,
-      this.onChanged
-      })
-      : super(key: key);
+  InputStateWidget({
+    Key? key,
+    required this.labelText,
+    required this.labelStyle,
+    this.counterAllow = false,
+    this.obscureText = false,
+    this.visibleIconClear = false,
+    this.useMayus = false,
+    this.iconData,
+    this.focusNode,
+    this.focusNextNode,
+    this.controller,
+    this.keyboardType,
+    this.kextInputAction,
+    this.textStyle,
+    this.maxLength,
+    this.onChanged,
+  }) : super(key: key);
 }
 
 class _InputStateWidget extends State<InputStateWidget> {
