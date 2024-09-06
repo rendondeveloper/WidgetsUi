@@ -30,20 +30,24 @@ class LabelTitleSubtitleWidget extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children: <Widget>[
-        Text(title,
-            softWrap: true,
-            maxLines: maxLinesLabel,
-            style: styleTitle ??
-                Theme.of(context)
-                    .textTheme
-                    .labelSmall
-                    ?.copyWith(fontWeight: FontWeight.normal)),
+        FittedBox(
+          child: Text(title,
+              softWrap: true,
+              maxLines: maxLinesLabel,
+              style: styleTitle ??
+                  Theme.of(context)
+                      .textTheme
+                      .labelSmall
+                      ?.copyWith(fontWeight: FontWeight.normal)),
+        ),
         SizedBox(height: separation),
-        Text(subtTitle,
-            softWrap: true,
-            maxLines: maxLinesData,
-            overflow: TextOverflow.ellipsis,
-            style: styleLabel ?? Theme.of(context).textTheme.labelSmall)
+        FittedBox(
+          child: Text(subtTitle,
+              softWrap: true,
+              maxLines: maxLinesData,
+              overflow: TextOverflow.ellipsis,
+              style: styleLabel ?? Theme.of(context).textTheme.labelSmall),
+        )
       ],
     );
   }
