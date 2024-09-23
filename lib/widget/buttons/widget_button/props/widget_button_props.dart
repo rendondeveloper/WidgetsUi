@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:widgets_ui/themes/const/const_export.dart';
-import 'package:widgets_ui/widget/buttons/widget_button/props/widget_button_type.dart';
+import 'package:widgets_ui/widget/buttons/common/widget_button_type.dart';
 
 class WidgetButtonProps {
   Widget? textWidget;

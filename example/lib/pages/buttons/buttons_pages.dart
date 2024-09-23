@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:widgets_ui/themes/const/const_export.dart';
-import 'package:widgets_ui/widget/buttons/widget_button/props/widget_button_type.dart';
-import 'package:widgets_ui/widget/buttons/widget_button/widget_button_export.dart';
+import 'package:widgets_ui/widget/buttons/buttons_export.dart'
+    show WidgetButton, WidgetButtonType, WidgetButtonProps;
 import 'package:widgets_ui/widget/pages/pages_demo/page_demo.dart';
 
 class ButtonsPage extends StatelessWidget {
@@ -36,6 +36,22 @@ class ButtonsPage extends StatelessWidget {
               props: WidgetButtonProps(
                 text: 'Normal Button',
                 type: WidgetButtonType.link,
+                onPressed: () {},
+              ),
+            ),
+            const SizedBox(height: separationSmallLarge),
+            WidgetButton(
+              props: WidgetButtonProps(
+                text: 'Normal Button',
+                type: WidgetButtonType.alert,
+                onPressed: () {},
+              ),
+            ),
+            const SizedBox(height: separationSmallLarge),
+            WidgetButton(
+              props: WidgetButtonProps(
+                text: 'Normal Button',
+                type: WidgetButtonType.secondary,
                 onPressed: () {},
               ),
             )
