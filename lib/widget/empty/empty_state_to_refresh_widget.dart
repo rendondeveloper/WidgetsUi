@@ -20,7 +20,7 @@ class EmptyStateToRefreshWidget extends StatelessWidget {
           : MediaQuery.of(context).size.width * .90,
       alignment: Alignment.center,
       child: RefreshIndicator(
-        onRefresh: onRefresh ?? () async {},
+        onRefresh: onRefresh,
         color: AppBarTheme.of(context).backgroundColor ??
             Theme.of(context).colorScheme.secondary,
         child: Wrap(

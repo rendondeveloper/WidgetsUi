@@ -29,8 +29,8 @@ class _WidgetButtonIcon extends State<WidgetButtonIcon> {
   Widget build(BuildContext context) {
     final background = widget.backgroundColor == null
         ? Theme.of(context).iconButtonTheme.style?.backgroundColor
-        : MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
+        : WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) {
             return widget.backgroundColor;
           });
 
