@@ -16,6 +16,7 @@ class WidgetCollapsableProps {
     this.mainAxisAlignment,
     this.scrollPhysicsContent,
     this.onTap,
+    this.expandedByDefault = false,
   });
 
   /// The title of the widget.
@@ -49,4 +50,7 @@ class WidgetCollapsableProps {
   final ScrollPhysics? scrollPhysicsContent;
   // ignore: inference_failure_on_function_return_type, avoid_positional_boolean_parameters
   final Function(bool)? onTap;
+
+  /// The separation between the title and the content.
+  final bool? expandedByDefault;
 }

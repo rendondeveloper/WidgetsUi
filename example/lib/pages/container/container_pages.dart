@@ -20,7 +20,18 @@ class ContainerPage extends StatelessWidget {
           WidgetTitleLeadingAndContainerCollapsable(
             props: WidgetCollapsableProps(
               title: const Text('Normal Button'),
-              leading: const Icon(Icons.arrow_back),
+              leading: const Icon(Icons.arrow_circle_down_sharp),
+              contents: [
+                const Text('Normal Button'),
+                const Text('Normal Button'),
+              ],
+            ),
+          ),
+          WidgetTitleLeadingAndContainerCollapsable(
+            props: WidgetCollapsableProps(
+              title: const Text('Normal Button'),
+              leading: const Icon(Icons.arrow_circle_down_sharp),
+              expandedByDefault: true,
               contents: [
                 const Text('Normal Button'),
                 const Text('Normal Button'),

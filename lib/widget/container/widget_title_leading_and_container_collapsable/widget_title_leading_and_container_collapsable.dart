@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:widgets_ui/themes/const/const_export.dart';
 
 part 'props/widget_collapsable_props.dart';
 
@@ -39,6 +43,12 @@ class _AplazoTitleLeadingAndContentState
       parent: _controller,
       curve: Curves.easeInOut,
     );
+
+    SchedulerBinding.instance!.addPostFrameCallback((_) {
+      if (widget.props?.expandedByDefault == true) {
+        _initAnimation();
+      }
+    });
   }
 
   @override
@@ -112,6 +122,9 @@ class _AplazoTitleLeadingAndContentState
                 return widget.props?.contents[index];
               },
             ),
+          ),
+          const SizedBox(
+            height: separationSmallExtraSmall,
           ),
         ],
       ),
