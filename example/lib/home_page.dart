@@ -1,9 +1,9 @@
 import 'package:widgets_ui/extension/context/extension_context.dart';
-import 'package:widgets_ui_app/pages/buttons/buttons_pages.dart';
 import 'package:widgets_ui_app/model/widget_model.dart';
 //*Insert Import*//
 //
 import 'package:flutter/material.dart';
+import 'package:widgets_ui_app/pages/pages_export.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -19,6 +19,10 @@ class _MyHomePageState extends State<MyHomePage> {
     WidgetModel(
       page: const ButtonsPage(),
       name: 'Buttons',
+    ),
+    WidgetModel(
+      page: const ContainerPage(),
+      name: 'Container',
     ),
     //*Insert Widget*//
   ];

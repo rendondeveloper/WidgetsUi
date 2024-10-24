@@ -1,10 +1,10 @@
 part of '../widget_title_leading_and_container.dart';
 
-/// The WidgetTitleLeadingAndContainerProps class contains the properties
+/// The WidgetContainerProps class contains the properties
 /// for the AplazoTitleLeadingAndContainer widget.
-class WidgetTitleLeadingAndContainerProps {
-  /// The constructor for the WidgetTitleLeadingAndContainerProps class.
-  WidgetTitleLeadingAndContainerProps({
+class WidgetContainerProps {
+  /// The constructor for the WidgetContainerProps class.
+  WidgetContainerProps({
     required this.title,
     required this.content,
     this.leading,

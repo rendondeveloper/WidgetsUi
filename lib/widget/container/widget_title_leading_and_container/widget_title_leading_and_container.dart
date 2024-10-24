@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-part 'props/widget_title_leading_and_container_props.dart';
+part 'props/widget_container_props.dart';
 
 /// The WidgetTitleLeadingAndContent widget.
 class WidgetTitleLeadingAndContent extends StatelessWidget {
   /// The constructor for the WidgetTitleLeadingAndContent widget.
   const WidgetTitleLeadingAndContent({super.key, this.props});
 
-  /// WidgetTitleLeadingAndContainerProps is a class that contains the
+  /// WidgetContainerProps is a class that contains the
   /// properties
-  final WidgetTitleLeadingAndContainerProps? props;
+  final WidgetContainerProps? props;
 
   @override
   Widget build(BuildContext context) {
