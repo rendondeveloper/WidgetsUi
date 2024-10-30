@@ -44,7 +44,7 @@ class _AplazoTitleLeadingAndContentState
       curve: Curves.easeInOut,
     );
 
-    SchedulerBinding.instance!.addPostFrameCallback((_) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
       if (widget.props?.expandedByDefault == true) {
         _initAnimation();
       }

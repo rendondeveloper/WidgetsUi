@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated("Use WidgetSimpleLoader")
 class LoaderWidget extends StatelessWidget {
   final bool showLoader;
   final Widget? container;
