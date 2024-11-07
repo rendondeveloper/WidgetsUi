@@ -32,6 +32,10 @@ class _MyHomePageState extends State<MyHomePage> {
       page: const InputPage(),
       name: 'Input',
     ),
+     WidgetModel(
+      page: const EmptySimplePage(),
+      name: 'Empty simple',
+    ),
     //*Insert Widget*//
   ];
 
