@@ -111,17 +111,17 @@ class _InputStateWidget extends State<InputStateWidget> {
                       : Icons.visibility_off),
                 ),
               )
-            : IconButton(
+            : widget.visibleIconClear
+                ? IconButton(
                 onPressed: () => controller?.clear(),
-                icon: Visibility(
-                    visible: visibleIconClear,
-                    child: const Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.only(top: 12.0),
                       child: Icon(
                         Icons.clear,
                       ),
-                    )),
-              ),
+                    ),
+                  )
+                : null,
         prefixIcon: iconData != null
             ? Padding(
                 padding: const EdgeInsets.only(top: 12.0),
