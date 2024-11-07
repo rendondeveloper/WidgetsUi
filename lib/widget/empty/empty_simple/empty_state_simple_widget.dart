@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:widgets_ui/themes/const/separation.dart';
 
-part './props/empty_state_props.dart';
+part 'props/empty_state_simple_props.dart';
 part './props/empty_type.dart';
 
 class EmptyStateSimpleWidget extends StatelessWidget {
@@ -11,7 +11,7 @@ class EmptyStateSimpleWidget extends StatelessWidget {
     this.props,
   });
 
-  final EmptyStateProps? props;
+  final EmptyStateSimpleProps? props;
 
   @override
   Widget build(BuildContext context) {

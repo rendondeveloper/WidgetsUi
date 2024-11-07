@@ -13,7 +13,7 @@ const double sizeHeadSmallFont = 20;
 ///size of the font for the main title
 const double sizeMainTitleFont = 18;
 
-/// 
+///
 const double sizeButtonTitleFont = 13;
 
 ///size of the font
@@ -44,6 +44,9 @@ const double sizePadding = 16;
 
 ///size of the font for the head
 const double smallIconSize = 12;
+
+///size of the icon extra large
+const double iconSizeExtraLarge = 70;
 
 ///size of the font for the head
 const double smallLabel = 10;

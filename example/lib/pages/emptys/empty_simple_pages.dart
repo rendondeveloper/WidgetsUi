@@ -13,7 +13,7 @@ class EmptySimplePage extends StatelessWidget {
       title: 'Buttons differents Screen',
       description: "Show the differents buttons",
       content: EmptyStateSimpleWidget(
-        props: EmptyStateProps(
+        props: EmptyStateSimpleProps(
           emptyType: EmptyType.center,
           icon: const Icon(Icons.abc),
           action: const Text('Action'),

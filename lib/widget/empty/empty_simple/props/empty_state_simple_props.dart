@@ -1,10 +1,10 @@
 part of '../empty_state_simple_widget.dart';
 
-///EmptyStateProps is a class that contains the properties for the
+///EmptyStateSimpleProps is a class that contains the properties for the
 ///AplazoEmptyState widget
-class EmptyStateProps {
-  ///Constructor for EmptyStateProps
-  EmptyStateProps({
+class EmptyStateSimpleProps {
+  ///Constructor for EmptyStateSimpleProps
+  EmptyStateSimpleProps({
     required this.icon,
     required this.title,
     this.subtitle,
